@@ -32,7 +32,7 @@ class Notes {
     // Добавить новую записку.
     async addNewNote(data) {
         const { text, importance, image } = data;
-        if (text && importance) {
+        if (text) {
             const date = getTimeNow();
             const result = await this.db.addNewNote({ 
                 text, 

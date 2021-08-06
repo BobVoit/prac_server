@@ -18,7 +18,16 @@ class DB {
 
     // Получить все записи.
     getAllNotes() {
-        const result = this.db.all('SELECT notes.*, images.name AS image FROM notes LEFT JOIN images ON notes.id = images.noteId', []);
+        const result = this.db.all(`
+        SELECT 
+            notes.*, 
+            images.name 
+        AS image 
+        FROM notes 
+        LEFT JOIN images 
+        ON notes.id = images.noteId
+        ORDER BY id DESC
+        `, []);
         return result;
     }
 
